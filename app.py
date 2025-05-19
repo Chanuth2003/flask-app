@@ -231,10 +231,10 @@ WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GOOGLE_CSE_URL = "https://www.googleapis.com/customsearch/v1"
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def generate_plan():
-    if not request.is_json:
-        return jsonify({"error": "Content-Type must be application/json"}), 415
+    if request.method == 'GET':
+        return "Please send a POST request with JSON data."
 
     try:
         data = request.get_json()
