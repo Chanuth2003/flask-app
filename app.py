@@ -124,7 +124,7 @@ WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GOOGLE_CSE_URL = "https://www.googleapis.com/customsearch/v1"
 
-@app.route('/generate-plan', methods=['POST'])
+@app.route('/', methods=['GET'])
 def generate_plan():
     try:
         data = request.json
