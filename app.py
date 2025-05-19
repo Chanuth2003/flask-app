@@ -212,6 +212,7 @@ def generate_plan():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
     '''
+from flask_cors import CORS
 
 import os
 from flask import Flask, request, jsonify
@@ -222,6 +223,7 @@ from dotenv import load_dotenv
 load_dotenv(dotenv_path='.env')
 
 app = Flask(__name__)
+CORS(app)
 
 # API Keys
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
