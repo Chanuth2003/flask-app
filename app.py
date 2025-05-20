@@ -142,7 +142,7 @@ def generate_plan():
         interests = data.get("interests", "history")
         travel_style = data.get("travel_style", "budget")
         accommodation = data.get("accommodation", "semi luxury")
-        people_count = data.get("people_count", 1)
+        people_count = data.get("num_people", 1)
 
         # Fetch top attractions using Google Places API
         places_url = (
