@@ -142,7 +142,7 @@ def generate_plan():
         interests = data.get("interests", "history")
         travel_style = data.get("travel_style", "budget")
         accommodation = data.get("accommodation", "semi luxury")
-        people_count = data.get("num_people", 1)
+        num_people = data.get("num_people", 1)
 
         # Fetch top attractions using Google Places API
         places_url = (
@@ -172,7 +172,7 @@ def generate_plan():
         # Construct prompt for Groq API
         prompt = f"""
         Generate a travel plan for {location}, Sri Lanka, starting on {start_date} for {duration}.
-        This plan is for {people_count} people.
+        This plan is for {num_people} people.
         Total Budget: ${budget}
         Interests: {interests}
         Travel Style: {travel_style}
@@ -186,7 +186,7 @@ def generate_plan():
         **Important**: Only include activities, attractions, and recommendations located within the city of {location}.
 
         **Pricing Instructions**:
-        - Ensure total costs stay within ${budget} for {people_count} people across {duration}.
+        - Ensure total costs stay within ${budget} for {num_people} people across {duration}.
         - Include transportation, accommodation, meals, and attraction costs based on the available data.
         - If costs are not available, clearly note that the costs are not specified.
         """
