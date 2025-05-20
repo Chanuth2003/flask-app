@@ -229,7 +229,7 @@ CORS(app)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")  # Unified key for CSE & Places
 GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
-WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 GOOGLE_CSE_URL = "https://www.googleapis.com/customsearch/v1"
 
@@ -262,7 +262,7 @@ def generate_plan():
             attractions = ["No attractions found for this location."]
 
         # Fetch weather data
-        weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={location},LK&appid={WEATHER_API_KEY}"
+        weather_url = f"http://api.openweathermap.org/data/2.5/weather?q={location},LK&appid={OPENWEATHER_API_KEY}"
         weather_response = requests.get(weather_url, timeout=10)
         weather_data = weather_response.json()
         current_weather = weather_data.get('weather', [{}])[0].get('description', 'Not available')
